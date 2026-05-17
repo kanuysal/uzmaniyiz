@@ -1,0 +1,27 @@
+<html>
+<head><title>502 Bad Gateway</title>
+<style>
+/* Logo dark/light mode color fix */
+.embed-logo img, .nav-brand img {
+  filter: none;
+  transition: filter 0.3s ease;
+}
+[data-theme="dark"] .embed-logo img,
+[data-theme="dark"] .nav-brand img {
+  filter: invert(1) brightness(2);
+}
+/* Also handle the default dark state (site starts dark) */
+body:not([data-theme="light"]) .embed-logo img,
+body:not([data-theme="light"]) .nav-brand img {
+  filter: invert(1) brightness(2);
+}
+[data-theme="light"] .embed-logo img,
+[data-theme="light"] .nav-brand img {
+  filter: none;
+}
+</style>
+</head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+</body>
+</html>
