@@ -23,5 +23,45 @@ body:not([data-theme="light"]) .nav-brand img {
 </head>
 <body>
 <center><h1>502 Bad Gateway</h1></center>
+
+<!-- Cookie Banner Fix -->
+<script>
+  function fixCookieBanner() {
+    const banner = document.querySelector('.cookie-w');
+    if (!banner) return;
+
+    const acceptBtn = banner.querySelector('[data-cookie="accept"]');
+    const rejectBtn = banner.querySelector('[data-cookie="reject"]');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        banner.style.display = 'none';
+        localStorage.setItem('cookie-preference', 'accepted');
+      });
+    }
+    if (rejectBtn) {
+      rejectBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        banner.style.display = 'none';
+        localStorage.setItem('cookie-preference', 'rejected');
+      });
+    }
+
+    const settingsBtns = document.querySelectorAll('[data-cookie="settings"]');
+    settingsBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        banner.style.display = 'flex';
+      });
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    fixCookieBanner();
+    // Also run after a delay because some frameworks might re-render
+    setTimeout(fixCookieBanner, 1000);
+  });
+</script>
 </body>
 </html>
