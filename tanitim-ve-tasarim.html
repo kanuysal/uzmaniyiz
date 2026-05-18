@@ -1164,6 +1164,25 @@ body:not([data-theme="light"]) .nav-brand img {
   }
 
 
+  /* Fix for unclickable links on mobile */
+  @media (max-width: 991px) {
+    .masonry-card {
+      position: relative;
+    }
+    .media-social-link {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: 10 !important;
+      pointer-events: auto !important;
+      opacity: 0;
+    }
+    .masonry-img-overlay {
+      pointer-events: none !important;
+    }
+  }
+
 </style></div><div class="css-breakpoints w-embed"><style>
   /* ----------------------------------- desktop only */
   @media only screen and (min-width: 992px) {
